@@ -6,40 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
+    <script src="app.js" defer></script>
   </head>
   <body>
     <div class="calculator-container">
-      <div class="calculator-screen">0</div>
+      <div class="calculator-screen"></div>
       <div class="calculator-btns-container">
         <div class="calculator-btns-row">
           <button class="calculator-btn dummy">?</button>
           <button class="calculator-btn dummy">?</button>
-          <button class="calculator-btn dummy">?</button>
-          <button class="calculator-btn clear-btn">C</button>
+          <button class="calculator-btn back-btn" inputtype="back">
+            &#8592;
+          </button>
+          <button class="calculator-btn clear-btn" inputtype="clear">C</button>
         </div>
         <div class="calculator-btns-row">
-          <button class="calculator-btn num-btn" value="7">7</button>
-          <button class="calculator-btn num-btn" value="8">8</button>
-          <button class="calculator-btn num-btn" value="9">9</button>
-          <button class="calculator-btn operator-btn" value="*">&#215;</button>
+          <button class="calculator-btn num-btn" value="7" inputtype="number">
+            7
+          </button>
+          <button class="calculator-btn num-btn" value="8" inputtype="number">
+            8
+          </button>
+          <button class="calculator-btn num-btn" value="9" inputtype="number">
+            9
+          </button>
+          <button
+            class="calculator-btn operator-btn"
+            value="*"
+            inputtype="operator"
+          >
+            &#215;
+          </button>
         </div>
         <div class="calculator-btns-row">
-          <button class="calculator-btn num-btn" value="4">4</button>
-          <button class="calculator-btn num-btn" value="5">5</button>
-          <button class="calculator-btn num-btn" value="6">6</button>
-          <button class="calculator-btn operator-btn" value="/">&#247;</button>
+          <button class="calculator-btn num-btn" value="4" inputtype="number">
+            4
+          </button>
+          <button class="calculator-btn num-btn" value="5" inputtype="number">
+            5
+          </button>
+          <button class="calculator-btn num-btn" value="6" inputtype="number">
+            6
+          </button>
+          <button
+            class="calculator-btn operator-btn"
+            value="/"
+            inputtype="operator"
+          >
+            &#247;
+          </button>
         </div>
         <div class="calculator-btns-row">
-          <button class="calculator-btn num-btn" value="7">1</button>
-          <button class="calculator-btn num-btn" value="8">2</button>
-          <button class="calculator-btn num-btn" value="9">3</button>
-          <button class="calculator-btn operator-btn" value="-">-</button>
+          <button class="calculator-btn num-btn" value="1" inputtype="number">
+            1
+          </button>
+          <button class="calculator-btn num-btn" value="2" inputtype="number">
+            2
+          </button>
+          <button class="calculator-btn num-btn" value="3" inputtype="number">
+            3
+          </button>
+          <button
+            class="calculator-btn operator-btn"
+            value="-"
+            inputtype="operator"
+          >
+            -
+          </button>
         </div>
         <div class="calculator-btns-row">
-          <button class="calculator-btn num-btn" value="0">0</button>
-          <button class="calculator-btn decimal-btn" value=".">.</button>
-          <button class="calculator-btn operator-btn" value="=">=</button>
-          <button class="calculator-btn operator-btn" value="+">+</button>
+          <button class="calculator-btn num-btn" value="0" inputtype="number">
+            0
+          </button>
+          <button
+            class="calculator-btn decimal-btn"
+            value="."
+            inputtype="number"
+          >
+            .
+          </button>
+          <button
+            class="calculator-btn operator-btn"
+            value="="
+            inputtype="equals"
+          >
+            =
+          </button>
+          <button
+            class="calculator-btn operator-btn"
+            value="+"
+            inputtype="operator"
+          >
+            +
+          </button>
         </div>
       </div>
     </div>
