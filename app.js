@@ -96,6 +96,19 @@ const calculator = {
       this.showCurrentVal();
     }
   },
+  calcPercentage: function () {
+    if (this.currentVal !== "" && this.currentVal !== ".") {
+      this.currentOperator = "/";
+      this.previousVal = this.currentVal;
+      this.currentVal = 100;
+      this.onUserEqualsInput();
+    } else if (this.output !== "") {
+      this.currentOperator = "/";
+      this.previousVal = this.output;
+      this.currentVal = 100;
+      this.onUserEqualsInput();
+    }
+  },
   showCurrentVal: function (inputPrecision, outputPrecision) {
     let screenValue;
     if (this.output !== "") {
@@ -223,6 +236,10 @@ document.querySelectorAll("button").forEach((btn) => {
   } else if (inputType === "back") {
     btn.addEventListener("click", () => {
       calculator.backspace();
+    });
+  } else if (inputType === "percent") {
+    btn.addEventListener("click", () => {
+      calculator.calcPercentage();
     });
   }
 });

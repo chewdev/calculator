@@ -63,13 +63,20 @@ body {
 .clear-btn {
   color: #ff2323;
   border-color: #ff2323;
+  color: #f0933d;
+  border-color: #f0933d;
 }
 
 .back-btn {
   color: #ff2323;
+  color: #f0933d;
   font-weight: bolder;
   font-size: 2em;
   padding: 0;
+}
+
+.percent-btn {
+  color: #f0933d;
 }
 
 .selected-operator {
