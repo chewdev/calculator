@@ -96,6 +96,16 @@ const calculator = {
       this.showCurrentVal();
     }
   },
+  plusMinusSwap: function () {
+    if (this.currentVal !== "") {
+      if (this.currentVal[0] === "-") {
+        this.currentVal = this.currentVal.slice(1);
+      } else {
+        this.currentVal = "-".concat(this.currentVal);
+      }
+      this.showCurrentVal();
+    }
+  },
   calcPercentage: function () {
     if (this.currentVal !== "" && this.currentVal !== ".") {
       this.currentOperator = "/";
@@ -240,6 +250,10 @@ document.querySelectorAll("button").forEach((btn) => {
   } else if (inputType === "percent") {
     btn.addEventListener("click", () => {
       calculator.calcPercentage();
+    });
+  } else if (inputType === "plusminus") {
+    btn.addEventListener("click", () => {
+      calculator.plusMinusSwap();
     });
   }
 });
