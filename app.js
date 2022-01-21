@@ -156,7 +156,7 @@ const calculator = {
     if (formattedOutput.length <= 13) {
       return this.trimTrailing0Decimals(formattedOutput);
     } else {
-      return this.trimTrailing0Decimals(this.formatTooLong(formattedOutput));
+      return this.formatTooLong(formattedOutput);
     }
   },
   formatTooLong: function (value) {
@@ -177,7 +177,13 @@ const calculator = {
       if (!exp) {
         return value.slice(0, 13);
       } else {
-        return this.trimTrailing0Decimals(Number(base).toFixed(2)) + `e${exp}`;
+        base = Number(base).toFixed(2);
+        if (base.split(".")[0].length > 1) {
+          base = `${base.slice(0, 1)}.${base.slice(1, 2)}${base.slice(3, 4)}`;
+          exp++;
+        }
+        base = this.trimTrailing0Decimals(base);
+        return `${base}e${exp}`;
       }
     }
   },
