@@ -45,6 +45,13 @@ const calculator = {
   },
   onUserOperatorInput: function (operator) {
     if (
+      this.currentVal === "" &&
+      this.previousVal === "" &&
+      this.output === ""
+    ) {
+      return;
+    }
+    if (
       this.previousVal !== "" &&
       this.currentVal !== "" &&
       this.currentOperator !== ""
