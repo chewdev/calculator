@@ -108,7 +108,7 @@ const calculator = {
     calculatorScreen.textContent = screenValue;
   },
   trimTrailing0Decimals: (val) => {
-    if (val.toString().match(/./)) {
+    if (val.toString().match(/\./)) {
       let i = 0;
       while (true) {
         let currLast = val[val.length - 1 - i];
