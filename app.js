@@ -1,4 +1,5 @@
 const calculatorScreen = document.querySelector(".calculator-screen");
+const operatorBtns = document.querySelectorAll(".operator-btn");
 const calculator = {
   add: (x, y) => x + y,
   subtract: (x, y) => x - y,
@@ -60,6 +61,7 @@ const calculator = {
     }
     this.currentOperator = operator;
     this.showCurrentVal();
+    this.showSelectedOperator();
   },
   getPrecision: (val) => {
     const [, decimal] = val.toString().split(".");
@@ -85,6 +87,7 @@ const calculator = {
       this.previousVal = "";
       this.currentOperator = "";
       this.showCurrentVal(precision, outputPrecision);
+      this.showSelectedOperator();
     }
   },
   backspace: function () {
@@ -96,7 +99,6 @@ const calculator = {
   showCurrentVal: function (inputPrecision, outputPrecision) {
     let screenValue;
     if (this.output !== "") {
-      console.log(this.output);
       screenValue = this.formatOutput(
         this.output,
         inputPrecision,
@@ -134,7 +136,6 @@ const calculator = {
     }
   },
   formatOutput: function (output, inputPrecision, outputPrecision) {
-    console.log(typeof output);
     if (typeof output !== "number") {
       return output;
     }
@@ -175,7 +176,7 @@ const calculator = {
     } else {
       let [base, exp] = value.split("e");
       if (!exp) {
-        return value.slice(0, 13);
+        return this.trimTrailing0Decimals(value.slice(0, 13));
       } else {
         base = Number(base).toFixed(2);
         if (base.split(".")[0].length > 1) {
@@ -186,6 +187,16 @@ const calculator = {
         return `${base}e${exp}`;
       }
     }
+  },
+  showSelectedOperator: function () {
+    const currThis = this;
+    operatorBtns.forEach(function (operatorBtn) {
+      if (operatorBtn.value === currThis.currentOperator) {
+        operatorBtn.classList.add("selected-operator");
+      } else {
+        operatorBtn.classList.remove("selected-operator");
+      }
+    });
   },
 };
 
